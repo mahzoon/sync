@@ -1,0 +1,10 @@
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.csprojResolveAssemblyReference.cache
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.Properties.Resources.resources
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.csproj.GenerateResource.Cache
+C:\Nature Net\sync\sync\bin\Debug\sync.exe.config
+C:\Nature Net\sync\sync\bin\Debug\sync.exe
+C:\Nature Net\sync\sync\bin\Debug\sync.pdb
+C:\Nature Net\sync\sync\bin\Debug\RestSharp.xml
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.exe
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.pdb
+C:\Nature Net\sync\sync\obj\x86\Debug\sync.MainForm.resources
