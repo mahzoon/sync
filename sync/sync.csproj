@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Interaction_Log_Serializable.cs" />
     <Compile Include="classes\ServerDataClasses.cs" />
     <Compile Include="classes\TableTopDataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -58,6 +59,7 @@
       <DependentUpon>TableTopDataClasses.dbml</DependentUpon>
     </Compile>
     <Compile Include="Configurations.cs" />
+    <Compile Include="DumpServerDB.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

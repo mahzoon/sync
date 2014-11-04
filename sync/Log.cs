@@ -17,8 +17,8 @@ namespace sync
                 reader.Close();
 
                 StreamWriter writer = new StreamWriter(Configurations.GetAbsoluteLogFilePath());
-                string error = "--- START ON: " + DateTime.Now.ToString() + " ---\r\nMessage: " + e.Message +
-                    "\r\n" + e.StackTrace + "--- END (" + DateTime.Now.ToString() + ") ---\r\n" + whole;
+                string error = "--- START ON: " + DateTime.UtcNow.ToString() + " ---\r\nMessage: " + e.Message +
+                    "\r\n" + e.StackTrace + "--- END (" + DateTime.UtcNow.ToString() + ") ---\r\n" + whole;
                 writer.WriteLine(error);
                 writer.Close();
             }
@@ -27,7 +27,7 @@ namespace sync
 
         public static void WriteCmdLog(string cmd)
         {
-            string time = DateTime.Now.ToString();
+            string time = DateTime.UtcNow.ToString();
 
             StreamWriter writer = new StreamWriter(Configurations.GetAbsoluteLogCmdFilePath(), true);
             writer.WriteLine("---START: " + time + "---");

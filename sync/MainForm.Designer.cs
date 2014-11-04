@@ -54,8 +54,36 @@
             this.comboBox_ls_man = new System.Windows.Forms.ComboBox();
             this.tabPage_settings = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel_settings = new System.Windows.Forms.TableLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.button_add_activity = new System.Windows.Forms.Button();
+            this.textBox_activity_description = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox_activity_name = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button_update_activity = new System.Windows.Forms.Button();
+            this.button_refresh_activities = new System.Windows.Forms.Button();
+            this.comboBox_activities = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.button_update_status = new System.Windows.Forms.Button();
+            this.textBox_status = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button_refresh_ideas = new System.Windows.Forms.Button();
+            this.comboBox_ideas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.button_update_affiliation = new System.Windows.Forms.Button();
+            this.textBox_affiliation = new System.Windows.Forms.TextBox();
+            this.button_refresh_users = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox_users = new System.Windows.Forms.ComboBox();
             this.button_hidden = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button_remove_user = new System.Windows.Forms.Button();
+            this.button_remove_idea = new System.Windows.Forms.Button();
+            this.button_remove_activity = new System.Windows.Forms.Button();
             this.tabControl_sync.SuspendLayout();
             this.tabPage_auto.SuspendLayout();
             this.tableLayoutPanel_auto.SuspendLayout();
@@ -65,6 +93,11 @@
             this.tableLayoutPanel_manual.SuspendLayout();
             this.tabPage_settings.SuspendLayout();
             this.tableLayoutPanel_settings.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl_sync
@@ -76,7 +109,7 @@
             this.tabControl_sync.Location = new System.Drawing.Point(0, 0);
             this.tabControl_sync.Name = "tabControl_sync";
             this.tabControl_sync.SelectedIndex = 0;
-            this.tabControl_sync.Size = new System.Drawing.Size(510, 559);
+            this.tabControl_sync.Size = new System.Drawing.Size(578, 559);
             this.tabControl_sync.TabIndex = 0;
             // 
             // tabPage_auto
@@ -359,7 +392,7 @@
             this.tabPage_settings.Location = new System.Drawing.Point(4, 22);
             this.tabPage_settings.Name = "tabPage_settings";
             this.tabPage_settings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_settings.Size = new System.Drawing.Size(502, 533);
+            this.tabPage_settings.Size = new System.Drawing.Size(570, 533);
             this.tabPage_settings.TabIndex = 2;
             this.tabPage_settings.Text = "Settings";
             this.tabPage_settings.UseVisualStyleBackColor = true;
@@ -367,20 +400,190 @@
             // tableLayoutPanel_settings
             // 
             this.tableLayoutPanel_settings.ColumnCount = 2;
-            this.tableLayoutPanel_settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel_settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.tableLayoutPanel_settings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel_settings.Controls.Add(this.panel7, 1, 4);
+            this.tableLayoutPanel_settings.Controls.Add(this.label8, 0, 3);
+            this.tableLayoutPanel_settings.Controls.Add(this.panel6, 1, 3);
+            this.tableLayoutPanel_settings.Controls.Add(this.panel5, 1, 2);
+            this.tableLayoutPanel_settings.Controls.Add(this.panel4, 1, 1);
             this.tableLayoutPanel_settings.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel_settings.Controls.Add(this.button_hidden, 0, 3);
+            this.tableLayoutPanel_settings.Controls.Add(this.label6, 0, 1);
+            this.tableLayoutPanel_settings.Controls.Add(this.label7, 0, 2);
+            this.tableLayoutPanel_settings.Controls.Add(this.panel3, 1, 0);
+            this.tableLayoutPanel_settings.Controls.Add(this.button_hidden, 0, 6);
+            this.tableLayoutPanel_settings.Controls.Add(this.label11, 0, 4);
             this.tableLayoutPanel_settings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_settings.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel_settings.Name = "tableLayoutPanel_settings";
-            this.tableLayoutPanel_settings.RowCount = 4;
+            this.tableLayoutPanel_settings.RowCount = 7;
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel_settings.Size = new System.Drawing.Size(496, 527);
+            this.tableLayoutPanel_settings.Size = new System.Drawing.Size(564, 527);
             this.tableLayoutPanel_settings.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.button_add_activity);
+            this.panel7.Controls.Add(this.textBox_activity_description);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(86, 160);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(478, 120);
+            this.panel7.TabIndex = 9;
+            // 
+            // button_add_activity
+            // 
+            this.button_add_activity.Location = new System.Drawing.Point(200, 84);
+            this.button_add_activity.Name = "button_add_activity";
+            this.button_add_activity.Size = new System.Drawing.Size(32, 21);
+            this.button_add_activity.TabIndex = 8;
+            this.button_add_activity.Text = "A";
+            this.button_add_activity.UseVisualStyleBackColor = true;
+            this.button_add_activity.Click += new System.EventHandler(this.button_add_activity_Click);
+            // 
+            // textBox_activity_description
+            // 
+            this.textBox_activity_description.Location = new System.Drawing.Point(3, 10);
+            this.textBox_activity_description.Multiline = true;
+            this.textBox_activity_description.Name = "textBox_activity_description";
+            this.textBox_activity_description.Size = new System.Drawing.Size(191, 95);
+            this.textBox_activity_description.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 133);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(66, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Add Activity:";
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.textBox_activity_name);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(86, 120);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(478, 40);
+            this.panel6.TabIndex = 6;
+            // 
+            // textBox_activity_name
+            // 
+            this.textBox_activity_name.Location = new System.Drawing.Point(3, 10);
+            this.textBox_activity_name.Name = "textBox_activity_name";
+            this.textBox_activity_name.Size = new System.Drawing.Size(191, 20);
+            this.textBox_activity_name.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button_remove_activity);
+            this.panel5.Controls.Add(this.button_update_activity);
+            this.panel5.Controls.Add(this.button_refresh_activities);
+            this.panel5.Controls.Add(this.comboBox_activities);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(86, 80);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(478, 40);
+            this.panel5.TabIndex = 5;
+            // 
+            // button_update_activity
+            // 
+            this.button_update_activity.Location = new System.Drawing.Point(251, 9);
+            this.button_update_activity.Name = "button_update_activity";
+            this.button_update_activity.Size = new System.Drawing.Size(32, 21);
+            this.button_update_activity.TabIndex = 7;
+            this.button_update_activity.Text = "U";
+            this.button_update_activity.UseVisualStyleBackColor = true;
+            this.button_update_activity.Click += new System.EventHandler(this.button_update_activity_Click);
+            // 
+            // button_refresh_activities
+            // 
+            this.button_refresh_activities.Location = new System.Drawing.Point(200, 9);
+            this.button_refresh_activities.Name = "button_refresh_activities";
+            this.button_refresh_activities.Size = new System.Drawing.Size(30, 21);
+            this.button_refresh_activities.TabIndex = 4;
+            this.button_refresh_activities.Text = "R";
+            this.button_refresh_activities.UseVisualStyleBackColor = true;
+            this.button_refresh_activities.Click += new System.EventHandler(this.button_refresh_activities_Click);
+            // 
+            // comboBox_activities
+            // 
+            this.comboBox_activities.FormattingEnabled = true;
+            this.comboBox_activities.Location = new System.Drawing.Point(3, 10);
+            this.comboBox_activities.Name = "comboBox_activities";
+            this.comboBox_activities.Size = new System.Drawing.Size(191, 21);
+            this.comboBox_activities.TabIndex = 2;
+            this.comboBox_activities.SelectedIndexChanged += new System.EventHandler(this.comboBox_activities_SelectedIndexChanged);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.button_remove_idea);
+            this.panel4.Controls.Add(this.button_update_status);
+            this.panel4.Controls.Add(this.textBox_status);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.button_refresh_ideas);
+            this.panel4.Controls.Add(this.comboBox_ideas);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(86, 40);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(478, 40);
+            this.panel4.TabIndex = 4;
+            // 
+            // button_update_status
+            // 
+            this.button_update_status.Location = new System.Drawing.Point(350, 10);
+            this.button_update_status.Name = "button_update_status";
+            this.button_update_status.Size = new System.Drawing.Size(32, 21);
+            this.button_update_status.TabIndex = 6;
+            this.button_update_status.Text = "U";
+            this.button_update_status.UseVisualStyleBackColor = true;
+            this.button_update_status.Click += new System.EventHandler(this.button_update_status_Click);
+            // 
+            // textBox_status
+            // 
+            this.textBox_status.Location = new System.Drawing.Point(306, 10);
+            this.textBox_status.Name = "textBox_status";
+            this.textBox_status.Size = new System.Drawing.Size(38, 20);
+            this.textBox_status.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(248, 13);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Status:";
+            // 
+            // button_refresh_ideas
+            // 
+            this.button_refresh_ideas.Location = new System.Drawing.Point(200, 10);
+            this.button_refresh_ideas.Name = "button_refresh_ideas";
+            this.button_refresh_ideas.Size = new System.Drawing.Size(30, 21);
+            this.button_refresh_ideas.TabIndex = 3;
+            this.button_refresh_ideas.Text = "R";
+            this.button_refresh_ideas.UseVisualStyleBackColor = true;
+            this.button_refresh_ideas.Click += new System.EventHandler(this.button_refresh_ideas_Click);
+            // 
+            // comboBox_ideas
+            // 
+            this.comboBox_ideas.FormattingEnabled = true;
+            this.comboBox_ideas.Location = new System.Drawing.Point(3, 10);
+            this.comboBox_ideas.Name = "comboBox_ideas";
+            this.comboBox_ideas.Size = new System.Drawing.Size(191, 21);
+            this.comboBox_ideas.TabIndex = 1;
+            this.comboBox_ideas.SelectedIndexChanged += new System.EventHandler(this.comboBox_ideas_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -388,9 +591,89 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 13);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Site name:";
+            this.label5.Text = "Users:";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Design Ideas: ";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 93);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Activities:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.button_remove_user);
+            this.panel3.Controls.Add(this.button_update_affiliation);
+            this.panel3.Controls.Add(this.textBox_affiliation);
+            this.panel3.Controls.Add(this.button_refresh_users);
+            this.panel3.Controls.Add(this.label9);
+            this.panel3.Controls.Add(this.comboBox_users);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(86, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(478, 40);
+            this.panel3.TabIndex = 3;
+            // 
+            // button_update_affiliation
+            // 
+            this.button_update_affiliation.Location = new System.Drawing.Point(350, 10);
+            this.button_update_affiliation.Name = "button_update_affiliation";
+            this.button_update_affiliation.Size = new System.Drawing.Size(32, 21);
+            this.button_update_affiliation.TabIndex = 4;
+            this.button_update_affiliation.Text = "U";
+            this.button_update_affiliation.UseVisualStyleBackColor = true;
+            this.button_update_affiliation.Click += new System.EventHandler(this.button_update_affiliation_Click);
+            // 
+            // textBox_affiliation
+            // 
+            this.textBox_affiliation.Location = new System.Drawing.Point(306, 10);
+            this.textBox_affiliation.Name = "textBox_affiliation";
+            this.textBox_affiliation.Size = new System.Drawing.Size(38, 20);
+            this.textBox_affiliation.TabIndex = 3;
+            // 
+            // button_refresh_users
+            // 
+            this.button_refresh_users.Location = new System.Drawing.Point(200, 10);
+            this.button_refresh_users.Name = "button_refresh_users";
+            this.button_refresh_users.Size = new System.Drawing.Size(30, 21);
+            this.button_refresh_users.TabIndex = 2;
+            this.button_refresh_users.Text = "R";
+            this.button_refresh_users.UseVisualStyleBackColor = true;
+            this.button_refresh_users.Click += new System.EventHandler(this.button_refresh_users_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(248, 13);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Affiliation:";
+            // 
+            // comboBox_users
+            // 
+            this.comboBox_users.FormattingEnabled = true;
+            this.comboBox_users.Location = new System.Drawing.Point(3, 10);
+            this.comboBox_users.Name = "comboBox_users";
+            this.comboBox_users.Size = new System.Drawing.Size(191, 21);
+            this.comboBox_users.TabIndex = 0;
+            this.comboBox_users.SelectedIndexChanged += new System.EventHandler(this.comboBox_users_SelectedIndexChanged);
             // 
             // button_hidden
             // 
@@ -403,11 +686,51 @@
             this.button_hidden.UseVisualStyleBackColor = true;
             this.button_hidden.Visible = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 170);
+            this.label11.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Description:";
+            // 
+            // button_remove_user
+            // 
+            this.button_remove_user.Location = new System.Drawing.Point(413, 10);
+            this.button_remove_user.Name = "button_remove_user";
+            this.button_remove_user.Size = new System.Drawing.Size(60, 21);
+            this.button_remove_user.TabIndex = 5;
+            this.button_remove_user.Text = "Remove";
+            this.button_remove_user.UseVisualStyleBackColor = true;
+            this.button_remove_user.Click += new System.EventHandler(this.button_remove_user_Click);
+            // 
+            // button_remove_idea
+            // 
+            this.button_remove_idea.Location = new System.Drawing.Point(413, 9);
+            this.button_remove_idea.Name = "button_remove_idea";
+            this.button_remove_idea.Size = new System.Drawing.Size(60, 21);
+            this.button_remove_idea.TabIndex = 7;
+            this.button_remove_idea.Text = "Remove";
+            this.button_remove_idea.UseVisualStyleBackColor = true;
+            this.button_remove_idea.Click += new System.EventHandler(this.button_remove_idea_Click);
+            // 
+            // button_remove_activity
+            // 
+            this.button_remove_activity.Location = new System.Drawing.Point(413, 9);
+            this.button_remove_activity.Name = "button_remove_activity";
+            this.button_remove_activity.Size = new System.Drawing.Size(60, 21);
+            this.button_remove_activity.TabIndex = 8;
+            this.button_remove_activity.Text = "Remove";
+            this.button_remove_activity.UseVisualStyleBackColor = true;
+            this.button_remove_activity.Click += new System.EventHandler(this.button_remove_activity_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(510, 559);
+            this.ClientSize = new System.Drawing.Size(578, 559);
             this.Controls.Add(this.tabControl_sync);
             this.Name = "MainForm";
             this.Text = "Sync";
@@ -425,6 +748,15 @@
             this.tabPage_settings.ResumeLayout(false);
             this.tableLayoutPanel_settings.ResumeLayout(false);
             this.tableLayoutPanel_settings.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -458,6 +790,34 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ProgressBar progressBar_sl;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button button_update_activity;
+        private System.Windows.Forms.TextBox textBox_activity_description;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox textBox_activity_name;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button_refresh_activities;
+        private System.Windows.Forms.ComboBox comboBox_activities;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button button_update_status;
+        private System.Windows.Forms.TextBox textBox_status;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button_refresh_ideas;
+        private System.Windows.Forms.ComboBox comboBox_ideas;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button_update_affiliation;
+        private System.Windows.Forms.TextBox textBox_affiliation;
+        private System.Windows.Forms.Button button_refresh_users;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox_users;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button_add_activity;
+        private System.Windows.Forms.Button button_remove_activity;
+        private System.Windows.Forms.Button button_remove_idea;
+        private System.Windows.Forms.Button button_remove_user;
     }
 }
 

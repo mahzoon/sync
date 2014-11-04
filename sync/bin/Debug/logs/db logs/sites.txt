@@ -1,0 +1,6 @@
+1,test,,Test Site
+2,aces,https://dl.dropboxusercontent.com/u/5104407/nntest/aces.jpg,Aspen Center for Environmental Studies
+3,uncc,https://dl.dropboxusercontent.com/u/5104407/nntest/uncc.jpg,University of North Carolina at Charlotte
+4,cu,https://dl.dropboxusercontent.com/u/5104407/nntest/cu.jpg,University of Colorado Boulder
+5,umd,https://dl.dropboxusercontent.com/u/5104407/nntest/umd.jpg,University of Maryland College Park
+

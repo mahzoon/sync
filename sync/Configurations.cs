@@ -5,6 +5,7 @@ using System.Text;
 using System.Reflection;
 using System.IO;
 using System.Net;
+using sync.classes;
 
 namespace sync
 {
@@ -21,12 +22,14 @@ namespace sync
 
         public static long last_change_tabletop = 0;
         public static long last_interaction_id = 0;
-        public static int max_interaction_size = 1000; // number of records
+        public static int max_interaction_size = 10; // number of records
         public static DateTime last_change_server_users = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        public static DateTime last_change_server_webusers = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         public static DateTime last_change_server_contributions = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         public static DateTime last_change_server_feedbacks = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         public static DateTime last_change_server_interactions = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        public static long last_change_interaction_files = 0;
+        public static DateTime last_change_interaction_files = new DateTime(1970, 1, 1, 0, 0, 0);
+        public static long last_change_interaction_files_id = 0;
 
         public static int local_to_server_refresh_rate = 40000;
         public static int server_to_local_refresh_rate = 40000;
@@ -52,6 +55,9 @@ namespace sync
         public static bool start_auto = false;
         public static bool sync_interactions_to_dropbox = false;
         public static bool sync_interactions_from_dropbox = false;
+        public static bool sync_interactions_to_server = false;
+        public static bool sync_interactions_from_server = false;
+        public static bool send_notifications = true;
 
         public static int max_submit_changes = 10000;
 
@@ -98,10 +104,12 @@ namespace sync
             parser.SetValue("Parameters", "last_change_tabletop", last_change_tabletop);
             parser.SetValue("Parameters", "last_interaction_id", last_interaction_id);
             parser.SetValue("Parameters", "last_change_server_users", last_change_server_users);
+            parser.SetValue("Parameters", "last_change_server_webusers", last_change_server_webusers);
             parser.SetValue("Parameters", "last_change_server_contributions", last_change_server_contributions);
             parser.SetValue("Parameters", "last_change_server_feedbacks", last_change_server_feedbacks);
             parser.SetValue("Parameters", "last_change_server_interactions", last_change_server_interactions);
             parser.SetValue("Parameters", "last_change_interaction_files", last_change_interaction_files);
+            parser.SetValue("Parameters", "last_change_interaction_files_id", last_change_interaction_files_id);
             parser.Save(GetAbsoluteConfigFilePath(), Encoding.UTF8);
 		}
 		
@@ -113,10 +121,12 @@ namespace sync
 			last_change_tabletop = parser.GetValue("Parameters", "last_change_tabletop", last_change_tabletop);
             last_interaction_id = parser.GetValue("Parameters", "last_interaction_id", last_interaction_id);
             last_change_server_users = parser.GetValue("Parameters", "last_change_server_users", last_change_server_users);
+            last_change_server_webusers = parser.GetValue("Parameters", "last_change_server_webusers", last_change_server_webusers);
             last_change_server_contributions = parser.GetValue("Parameters", "last_change_server_contributions", last_change_server_contributions);
             last_change_server_feedbacks = parser.GetValue("Parameters", "last_change_server_feedbacks", last_change_server_feedbacks);
             last_change_server_interactions = parser.GetValue("Parameters", "last_change_server_interactions", last_change_server_interactions);
             last_change_interaction_files = parser.GetValue("Parameters", "last_change_interaction_files", last_change_interaction_files);
+            last_change_interaction_files_id = parser.GetValue("Parameters", "last_change_interaction_files_id", last_change_interaction_files_id);
 
             latitudes.Clear(); longitudes.Clear();
             for (int counter = 1; counter < 12; counter++)
@@ -133,9 +143,21 @@ namespace sync
             store_cmd_log_in_file = parser.GetValue("Parameters", "store_cmd_log_in_file", store_cmd_log_in_file);
             show_other_tabs = parser.GetValue("Parameters", "show_other_tabs", show_other_tabs);
             start_auto = parser.GetValue("Parameters", "start_auto", start_auto);
+            max_interaction_size = parser.GetValue("Parameters", "max_interaction_size", max_interaction_size);
+            sync_interactions_to_server = parser.GetValue("Parameters", "sync_interactions_to_server", sync_interactions_to_server);
+            sync_interactions_from_server = parser.GetValue("Parameters", "sync_interactions_from_server", sync_interactions_from_server);
             sync_interactions_to_dropbox = parser.GetValue("Parameters", "sync_interactions_to_dropbox", sync_interactions_to_dropbox);
             sync_interactions_from_dropbox = parser.GetValue("Parameters", "sync_interactions_from_dropbox", sync_interactions_from_dropbox);
+            send_notifications = parser.GetValue("Parameters", "send_notifications", send_notifications);
 		}
+
+        public static string GetSiteNameForServer()
+        {
+            if (site_name == "dev")
+                return "aces";
+            else
+                return site_name;
+        }
 		
 		public static string GetDate_Formatted(DateTime dt)
         {
@@ -184,10 +206,10 @@ namespace sync
             return 0;
         }
 
-        public static long GetCurrentUnixTimestampMillis()
-        {
-            return (long)(DateTime.UtcNow - unix_epoch).TotalMilliseconds;
-        }
+        //public static long GetCurrentUnixTimestampMillis()
+        //{
+            //return (long)(DateTime.UtcNow - unix_epoch).TotalMilliseconds;
+        //}
 
         public static long GetUnixTimestampMillis(DateTime t)
         {
@@ -225,6 +247,19 @@ namespace sync
                 Log.WriteErrorLog(e);
                 return false;
             }
+        }
+
+        public static TableTopDataClassesDataContext GetTableTopDB()
+        {
+            if (Configurations.site_name == "aces")
+                return new TableTopDataClassesDataContext(sync.Properties.Settings.Default.nature_netConnectionString_aces);
+            if (Configurations.site_name == "umd")
+                return new TableTopDataClassesDataContext(sync.Properties.Settings.Default.nature_netConnectionString_umd);
+            if (Configurations.site_name == "uncc")
+                return new TableTopDataClassesDataContext(sync.Properties.Settings.Default.nature_netConnectionString_uncc);
+            if (Configurations.site_name == "dev")
+                return new TableTopDataClassesDataContext(sync.Properties.Settings.Default.nature_netConnectionString_dev);
+            return new TableTopDataClassesDataContext();
         }
     }
 }
