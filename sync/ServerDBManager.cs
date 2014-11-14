@@ -20,6 +20,7 @@ namespace sync
 
 		public bool ProcessUserChanges()
 		{
+            DateTime save_time = DateTime.UtcNow;
 			List<SAccount> accounts = null;
             accounts = server_api.GetAccountsCreatedSince(Configurations.last_change_server_users.Year.ToString(),
                 Configurations.last_change_server_users.Month.ToString(), Configurations.last_change_server_users.Day.ToString(),
@@ -62,9 +63,11 @@ namespace sync
                     }
                 }
             }
+            if (accounts.Count == 0)
+                return true;
             if (SubmitChangesToLocalDB(db))
             {
-                Configurations.last_change_server_users = DateTime.UtcNow;
+                Configurations.last_change_server_users = save_time;
                 Configurations.SaveSettings();
                 return true;
             }
@@ -73,6 +76,7 @@ namespace sync
 
         public bool ProcessWebUserChanges()
         {
+            DateTime save_time = DateTime.UtcNow;
             List<SWebAccount> accounts = null;
             accounts = server_api.GetWebAccountsCreatedSince(Configurations.last_change_server_webusers.Year.ToString(),
                 Configurations.last_change_server_webusers.Month.ToString(), Configurations.last_change_server_webusers.Day.ToString(),
@@ -102,7 +106,10 @@ namespace sync
                     try
                     {
                         SAccount related_account = server_api.GetAccount(accounts[counter].account_id);
-                        string uname = related_account.username;
+                        string uname = "default";
+                        if (related_account != null)
+                            uname = related_account.username;
+
                         if (uname == "default")
                             u_new.user_id = 0;
                         else
@@ -147,9 +154,11 @@ namespace sync
                     }
                 }
             }
+            if (accounts.Count == 0)
+                return true;
             if (SubmitChangesToLocalDB(db))
             {
-                Configurations.last_change_server_webusers = DateTime.UtcNow;
+                Configurations.last_change_server_webusers = save_time;
                 Configurations.SaveSettings();
                 return true;
             }
@@ -158,6 +167,7 @@ namespace sync
 
 		public bool ProcessContributionChanges()
 		{
+            DateTime save_time = DateTime.UtcNow;
 			List<SNote> notes;
             notes = server_api.GetNotesCreatedSince(Configurations.last_change_server_contributions.Year.ToString(),
                 Configurations.last_change_server_contributions.Month.ToString(), Configurations.last_change_server_contributions.Day.ToString(),
@@ -185,9 +195,14 @@ namespace sync
                     c1.web_username = notes[counter].webusername;
                     if (notes[counter].kind == "DesignIdea")
                         c1.tags = "Design Idea";
-                    //else
-                    //    if (media != null)
-                    //        c.tags = media.kind;
+                    else
+                    {
+                        if (notes[counter].medias != null && notes[counter].medias.Count > 0)
+                        {
+                            c1.tags = notes[counter].medias[0].kind;
+                            c1.media_url = notes[counter].medias[0].link;
+                        }
+                    }
                     int a_id = 0; // free observation
                     if (notes[counter].context.name.Substring(Configurations.GetSiteNameForServer().Count() + 1) == "design_idea")
                         a_id = 1; // design idea
@@ -245,9 +260,11 @@ namespace sync
                         submit_changes = false;
                 }
             }
+            if (notes.Count == 0)
+                return true;
             if (submit_changes)
             {
-                Configurations.last_change_server_contributions = DateTime.UtcNow;
+                Configurations.last_change_server_contributions = save_time;
                 Configurations.SaveSettings();
                 return true;
             }
@@ -256,6 +273,7 @@ namespace sync
 
         public bool ProcessFeedbackChanges()
         {
+            DateTime save_time = DateTime.UtcNow;
             List<SFeedback> feedbacks = server_api.GetFeedbacksCreatedSince(Configurations.last_change_server_feedbacks.Year.ToString(),
                 Configurations.last_change_server_feedbacks.Month.ToString(), Configurations.last_change_server_feedbacks.Day.ToString(),
                 Configurations.last_change_server_feedbacks.Hour.ToString(), Configurations.last_change_server_feedbacks.Minute.ToString(), true);
@@ -394,9 +412,11 @@ namespace sync
                     return false;
                 }
             }
+            if (feedbacks.Count == 0)
+                return true;
             if (all_fine)
             {
-                Configurations.last_change_server_feedbacks = DateTime.UtcNow;
+                Configurations.last_change_server_feedbacks = save_time;
                 Configurations.SaveSettings();
                 return true;
             }

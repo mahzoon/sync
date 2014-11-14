@@ -244,19 +244,19 @@ namespace sync
                     else
                         print_results(DateTime.UtcNow.ToString() + " (Server -> Local) " + server_to_local.current_accounts.Count.ToString() + " User(s) synced.");
                 }
-                //result = server_to_local.ProcessWebUserChanges();
-                //if (!result)
-                //{
-                //    if (RESTService.Last_Exception != null)
-                //        print_results(RESTService.Last_Exception.StackTrace);
-                //}
-                //else
-                //{
-                //    if (server_to_local.current_webaccounts.Count == 0)
-                //        print_results(DateTime.UtcNow.ToString() + " (Server -> Local) No change in webusers.");
-                //    else
-                //        print_results(DateTime.UtcNow.ToString() + " (Server -> Local) " + server_to_local.current_webaccounts.Count.ToString() + " WebUser(s) synced.");
-                //}
+                result = server_to_local.ProcessWebUserChanges();
+                if (!result)
+                {
+                    if (RESTService.Last_Exception != null)
+                        print_results(RESTService.Last_Exception.StackTrace);
+                }
+                else
+                {
+                    if (server_to_local.current_webaccounts.Count == 0)
+                        print_results(DateTime.UtcNow.ToString() + " (Server -> Local) No change in webusers.");
+                    else
+                        print_results(DateTime.UtcNow.ToString() + " (Server -> Local) " + server_to_local.current_webaccounts.Count.ToString() + " WebUser(s) synced.");
+                }
                 result = server_to_local.ProcessContributionChanges();
                 if (!result)
                 {
