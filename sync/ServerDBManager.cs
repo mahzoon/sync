@@ -566,6 +566,7 @@ namespace sync
                                 Activity a = new Activity(); a.name = contexts[counter].title; a.location_id = 0;
                                 a.description = contexts[counter].description; a.creation_date = DateTime.UtcNow;
                                 a.technical_info = contexts[counter].id.ToString();
+                                a.avatar = contexts[counter].extras;
                                 db.Activities.InsertOnSubmit(a);
                             }
                             else
@@ -574,6 +575,7 @@ namespace sync
                                 Activity a = activities.First<Activity>();
                                 a.description = contexts[counter].description;
                                 a.technical_info = contexts[counter].id.ToString();
+                                a.avatar = contexts[counter].extras;
                             }
                             if (!SubmitChangesToLocalDB(db))
                                 return false;

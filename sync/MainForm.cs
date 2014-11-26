@@ -32,6 +32,11 @@ namespace sync
         List<Design_Idea> cached_ideas = new List<Design_Idea>();
         List<Activity> cached_activities = new List<Activity>();
 
+        List<Collection> cached_user_collections = new List<Collection>();
+        List<Location> cached_locations = new List<Location>();
+        List<Activity> cached_activities_addcontrib = new List<Activity>();
+        Activity user_collection_activity;
+
         TabPage settings_tab_pointer;
         bool settings_visible = true;
 
@@ -48,6 +53,8 @@ namespace sync
             {
                 tabControl_sync.TabPages.Remove(tabPage_manual);
                 tabControl_sync.TabPages.Remove(tabPage_settings);
+                tabControl_sync.TabPages.Remove(tabPage_add_contrib);
+                tabControl_sync.TabPages.Remove(tabPage_add_activity);
                 settings_visible = false;
             }
 
@@ -95,9 +102,17 @@ namespace sync
         void show_hide_item_Click(object sender, EventArgs e)
         {
             if (!settings_visible)
+            {
                 tabControl_sync.TabPages.Add(tabPage_settings);
+                tabControl_sync.TabPages.Add(tabPage_add_contrib);
+                tabControl_sync.TabPages.Add(tabPage_add_activity);
+            }
             else
+            {
                 tabControl_sync.TabPages.Remove(tabPage_settings);
+                tabControl_sync.TabPages.Remove(tabPage_add_contrib);
+                tabControl_sync.TabPages.Remove(tabPage_add_activity);
+            }
             settings_visible = !settings_visible;
         }
 
@@ -858,6 +873,117 @@ namespace sync
                 MessageBox.Show("Error (" + ex.Message + "):\r\n" + ex.StackTrace);
                 return;
             }
+        }
+
+        private void button_refresh_users_addcontrib_Click(object sender, EventArgs e)
+        {
+            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+            var users = from u in db.Users
+                        where u.id > 0
+                        select u;
+            cached_users.Clear();
+            cached_users.AddRange(users);
+            comboBox_users_addcontrib.Items.Clear();
+            for (int counter = 1; counter < cached_users.Count + 1; counter++)
+                comboBox_users_addcontrib.Items.Add(counter.ToString() + " - " + cached_users[counter - 1].name);
+            //
+            var locations = from l in db.Locations
+                            select l;
+            cached_locations.Clear();
+            cached_locations.AddRange(locations);
+            comboBox_locations_addcontrib.Items.Clear();
+            for (int counter = 0; counter < cached_locations.Count; counter++)
+                comboBox_locations_addcontrib.Items.Add(cached_locations[counter].name);
+            comboBox_locations_addcontrib.SelectedIndex = 0;
+            //
+            var activities = from a in db.Activities
+                             select a;
+            cached_activities_addcontrib.Clear();
+            cached_activities_addcontrib.AddRange(activities);
+            comboBox_activities_addcontrib.Items.Clear();
+            for (int counter = 0; counter < cached_activities_addcontrib.Count; counter++)
+                comboBox_activities_addcontrib.Items.Add(cached_activities_addcontrib[counter].name);
+        }
+
+        private void comboBox_users_addcontrib_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int uid = cached_users[comboBox_users_addcontrib.SelectedIndex].id;
+            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+            //
+            var collections = from c in db.Collections
+                              where c.user_id == uid
+                              select c;
+            cached_user_collections.Clear();
+            cached_user_collections.AddRange(collections);
+            comboBox_collections_addcontrib.Items.Clear();
+            for (int counter = 0; counter < cached_user_collections.Count; counter++)
+                comboBox_collections_addcontrib.Items.Add(cached_user_collections[counter].name);
+            comboBox_collections_addcontrib.SelectedIndex = 0;
+            //
+        }
+
+        private void comboBox_collections_addcontrib_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int cid = cached_user_collections[comboBox_collections_addcontrib.SelectedIndex].id;
+            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+            //
+            Activity activity = (from c in db.Collections
+                                 where c.id == cid
+                                 select c).Single<Collection>().Activity;
+            user_collection_activity = activity;
+            comboBox_activities_addcontrib.Text = activity.name;
+        }
+
+        private void checkBox_new_collection_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBox_collections_addcontrib.Enabled = !checkBox_new_collection.Checked;
+            comboBox_activities_addcontrib.Enabled = checkBox_new_collection.Checked;
+        }
+
+        private void button_add_contrib_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int uid = cached_users[comboBox_users_addcontrib.SelectedIndex].id;
+                int cid = cached_user_collections[comboBox_collections_addcontrib.SelectedIndex].id;
+                int lid = cached_locations[comboBox_locations_addcontrib.SelectedIndex].id;
+
+                TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+                Contribution c = new Contribution();
+                c.date = DateTime.Now;
+                c.modified_date = DateTime.Now;
+                c.location_id = lid;
+                c.media_url = textBox_mediaurl_addcontrib.Text;
+                c.note = textBox_desc_addcontrib.Text;
+                c.tags = textBox_tags_addcontrib.Text;
+                c.status = "";
+                db.Contributions.InsertOnSubmit(c);
+                db.SubmitChanges();
+
+                if (checkBox_new_collection.Checked)
+                {
+                    Collection c2 = new Collection();
+                    c2.activity_id = cached_activities_addcontrib[comboBox_activities_addcontrib.SelectedIndex].id;
+                    c2.date = DateTime.Now;
+                    c2.user_id = uid;
+                    c2.name = Configurations.GetDate_Formatted(c2.date);
+                    db.Collections.InsertOnSubmit(c2);
+                    db.SubmitChanges();
+                    cid = c2.id;
+                }
+
+                Collection_Contribution_Mapping ccm = new Collection_Contribution_Mapping();
+                ccm.collection_id = cid;
+                ccm.contribution_id = c.id;
+                ccm.date = DateTime.Now;
+                db.Collection_Contribution_Mappings.InsertOnSubmit(ccm);
+                db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\r\n--\r\n" + ex.StackTrace);
+            }
+            MessageBox.Show("Contribution was added successfully.");
         }
     }
 
