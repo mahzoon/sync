@@ -73,13 +73,13 @@
             this.button_hidden = new System.Windows.Forms.Button();
             this.tabPage_add_contrib = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button_add_contrib = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.textBox_tags_addcontrib = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.textBox_mediaurl_addcontrib = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.button_add_contrib = new System.Windows.Forms.Button();
             this.textBox_desc_addcontrib = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -99,22 +99,22 @@
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage_add_activity = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox_activity_name = new System.Windows.Forms.TextBox();
-            this.textBox_activity_icon_url = new System.Windows.Forms.TextBox();
-            this.textBox_activity_description = new System.Windows.Forms.TextBox();
-            this.button_add_activity = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button_remove_activity = new System.Windows.Forms.Button();
-            this.button_update_activity = new System.Windows.Forms.Button();
             this.button_refresh_activities = new System.Windows.Forms.Button();
             this.comboBox_activities = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_activity_icon_url = new System.Windows.Forms.TextBox();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.textBox_activity_description = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.textBox_activity_name = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.button_update_activity = new System.Windows.Forms.Button();
+            this.button_remove_activity = new System.Windows.Forms.Button();
+            this.button_add_activity = new System.Windows.Forms.Button();
             this.tabControl_sync.SuspendLayout();
             this.tabPage_auto.SuspendLayout();
             this.tableLayoutPanel_auto.SuspendLayout();
@@ -137,9 +137,9 @@
             this.panel12.SuspendLayout();
             this.tabPage_add_activity.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel16.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -297,7 +297,7 @@
             this.tabPage_manual.Location = new System.Drawing.Point(4, 22);
             this.tabPage_manual.Name = "tabPage_manual";
             this.tabPage_manual.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_manual.Size = new System.Drawing.Size(543, 618);
+            this.tabPage_manual.Size = new System.Drawing.Size(583, 639);
             this.tabPage_manual.TabIndex = 1;
             this.tabPage_manual.Text = "Manual";
             this.tabPage_manual.UseVisualStyleBackColor = true;
@@ -325,7 +325,7 @@
             this.tableLayoutPanel_manual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel_manual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel_manual.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_manual.Size = new System.Drawing.Size(537, 612);
+            this.tableLayoutPanel_manual.Size = new System.Drawing.Size(577, 633);
             this.tableLayoutPanel_manual.TabIndex = 1;
             // 
             // comboBox_sl_man
@@ -338,7 +338,7 @@
             "ProcessFeedbackChanges"});
             this.comboBox_sl_man.Location = new System.Drawing.Point(103, 49);
             this.comboBox_sl_man.Name = "comboBox_sl_man";
-            this.comboBox_sl_man.Size = new System.Drawing.Size(351, 21);
+            this.comboBox_sl_man.Size = new System.Drawing.Size(391, 21);
             this.comboBox_sl_man.TabIndex = 9;
             // 
             // textBox_log_manual
@@ -350,7 +350,7 @@
             this.textBox_log_manual.Name = "textBox_log_manual";
             this.textBox_log_manual.ReadOnly = true;
             this.textBox_log_manual.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_log_manual.Size = new System.Drawing.Size(531, 526);
+            this.textBox_log_manual.Size = new System.Drawing.Size(571, 547);
             this.textBox_log_manual.TabIndex = 7;
             // 
             // label2
@@ -376,7 +376,7 @@
             // button_ls_exe
             // 
             this.button_ls_exe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_ls_exe.Location = new System.Drawing.Point(500, 8);
+            this.button_ls_exe.Location = new System.Drawing.Point(540, 8);
             this.button_ls_exe.Name = "button_ls_exe";
             this.button_ls_exe.Size = new System.Drawing.Size(34, 23);
             this.button_ls_exe.TabIndex = 4;
@@ -387,7 +387,7 @@
             // button_sl_exe
             // 
             this.button_sl_exe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_sl_exe.Location = new System.Drawing.Point(500, 48);
+            this.button_sl_exe.Location = new System.Drawing.Point(540, 48);
             this.button_sl_exe.Name = "button_sl_exe";
             this.button_sl_exe.Size = new System.Drawing.Size(34, 23);
             this.button_sl_exe.TabIndex = 6;
@@ -398,7 +398,7 @@
             // button_ls_show
             // 
             this.button_ls_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_ls_show.Location = new System.Drawing.Point(460, 8);
+            this.button_ls_show.Location = new System.Drawing.Point(500, 8);
             this.button_ls_show.Name = "button_ls_show";
             this.button_ls_show.Size = new System.Drawing.Size(34, 23);
             this.button_ls_show.TabIndex = 3;
@@ -409,7 +409,7 @@
             // button_sl_show
             // 
             this.button_sl_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_sl_show.Location = new System.Drawing.Point(460, 48);
+            this.button_sl_show.Location = new System.Drawing.Point(500, 48);
             this.button_sl_show.Name = "button_sl_show";
             this.button_sl_show.Size = new System.Drawing.Size(34, 23);
             this.button_sl_show.TabIndex = 5;
@@ -428,7 +428,7 @@
             "ProcessInsertFeedback"});
             this.comboBox_ls_man.Location = new System.Drawing.Point(103, 9);
             this.comboBox_ls_man.Name = "comboBox_ls_man";
-            this.comboBox_ls_man.Size = new System.Drawing.Size(351, 21);
+            this.comboBox_ls_man.Size = new System.Drawing.Size(391, 21);
             this.comboBox_ls_man.TabIndex = 8;
             // 
             // tabPage_settings
@@ -437,7 +437,7 @@
             this.tabPage_settings.Location = new System.Drawing.Point(4, 22);
             this.tabPage_settings.Name = "tabPage_settings";
             this.tabPage_settings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_settings.Size = new System.Drawing.Size(543, 618);
+            this.tabPage_settings.Size = new System.Drawing.Size(583, 639);
             this.tabPage_settings.TabIndex = 2;
             this.tabPage_settings.Text = "Settings";
             this.tabPage_settings.UseVisualStyleBackColor = true;
@@ -464,7 +464,7 @@
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel_settings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel_settings.Size = new System.Drawing.Size(537, 612);
+            this.tableLayoutPanel_settings.Size = new System.Drawing.Size(577, 633);
             this.tableLayoutPanel_settings.TabIndex = 1;
             // 
             // panel4
@@ -479,13 +479,13 @@
             this.panel4.Location = new System.Drawing.Point(90, 40);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(447, 40);
+            this.panel4.Size = new System.Drawing.Size(487, 40);
             this.panel4.TabIndex = 4;
             // 
             // button_remove_idea
             // 
             this.button_remove_idea.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_remove_idea.Location = new System.Drawing.Point(381, 9);
+            this.button_remove_idea.Location = new System.Drawing.Point(421, 9);
             this.button_remove_idea.Name = "button_remove_idea";
             this.button_remove_idea.Size = new System.Drawing.Size(60, 21);
             this.button_remove_idea.TabIndex = 7;
@@ -496,7 +496,7 @@
             // button_update_status
             // 
             this.button_update_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_update_status.Location = new System.Drawing.Point(318, 10);
+            this.button_update_status.Location = new System.Drawing.Point(358, 10);
             this.button_update_status.Name = "button_update_status";
             this.button_update_status.Size = new System.Drawing.Size(32, 21);
             this.button_update_status.TabIndex = 6;
@@ -507,7 +507,7 @@
             // textBox_status
             // 
             this.textBox_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_status.Location = new System.Drawing.Point(274, 10);
+            this.textBox_status.Location = new System.Drawing.Point(314, 10);
             this.textBox_status.Name = "textBox_status";
             this.textBox_status.Size = new System.Drawing.Size(38, 20);
             this.textBox_status.TabIndex = 5;
@@ -516,7 +516,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(216, 13);
+            this.label10.Location = new System.Drawing.Point(256, 13);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 4;
@@ -525,7 +525,7 @@
             // button_refresh_ideas
             // 
             this.button_refresh_ideas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_refresh_ideas.Location = new System.Drawing.Point(168, 10);
+            this.button_refresh_ideas.Location = new System.Drawing.Point(208, 10);
             this.button_refresh_ideas.Name = "button_refresh_ideas";
             this.button_refresh_ideas.Size = new System.Drawing.Size(30, 21);
             this.button_refresh_ideas.TabIndex = 3;
@@ -540,7 +540,7 @@
             this.comboBox_ideas.FormattingEnabled = true;
             this.comboBox_ideas.Location = new System.Drawing.Point(3, 10);
             this.comboBox_ideas.Name = "comboBox_ideas";
-            this.comboBox_ideas.Size = new System.Drawing.Size(159, 21);
+            this.comboBox_ideas.Size = new System.Drawing.Size(199, 21);
             this.comboBox_ideas.TabIndex = 1;
             this.comboBox_ideas.SelectedIndexChanged += new System.EventHandler(this.comboBox_ideas_SelectedIndexChanged);
             // 
@@ -576,13 +576,13 @@
             this.panel3.Location = new System.Drawing.Point(90, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(447, 40);
+            this.panel3.Size = new System.Drawing.Size(487, 40);
             this.panel3.TabIndex = 3;
             // 
             // button_remove_user
             // 
             this.button_remove_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_remove_user.Location = new System.Drawing.Point(381, 10);
+            this.button_remove_user.Location = new System.Drawing.Point(421, 10);
             this.button_remove_user.Name = "button_remove_user";
             this.button_remove_user.Size = new System.Drawing.Size(60, 21);
             this.button_remove_user.TabIndex = 5;
@@ -593,7 +593,7 @@
             // button_update_affiliation
             // 
             this.button_update_affiliation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_update_affiliation.Location = new System.Drawing.Point(318, 10);
+            this.button_update_affiliation.Location = new System.Drawing.Point(358, 10);
             this.button_update_affiliation.Name = "button_update_affiliation";
             this.button_update_affiliation.Size = new System.Drawing.Size(32, 21);
             this.button_update_affiliation.TabIndex = 4;
@@ -604,7 +604,7 @@
             // textBox_affiliation
             // 
             this.textBox_affiliation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_affiliation.Location = new System.Drawing.Point(274, 10);
+            this.textBox_affiliation.Location = new System.Drawing.Point(314, 10);
             this.textBox_affiliation.Name = "textBox_affiliation";
             this.textBox_affiliation.Size = new System.Drawing.Size(38, 20);
             this.textBox_affiliation.TabIndex = 3;
@@ -612,7 +612,7 @@
             // button_refresh_users
             // 
             this.button_refresh_users.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_refresh_users.Location = new System.Drawing.Point(168, 10);
+            this.button_refresh_users.Location = new System.Drawing.Point(208, 10);
             this.button_refresh_users.Name = "button_refresh_users";
             this.button_refresh_users.Size = new System.Drawing.Size(30, 21);
             this.button_refresh_users.TabIndex = 2;
@@ -624,7 +624,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(216, 13);
+            this.label9.Location = new System.Drawing.Point(256, 13);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 1;
@@ -637,7 +637,7 @@
             this.comboBox_users.FormattingEnabled = true;
             this.comboBox_users.Location = new System.Drawing.Point(3, 10);
             this.comboBox_users.Name = "comboBox_users";
-            this.comboBox_users.Size = new System.Drawing.Size(159, 21);
+            this.comboBox_users.Size = new System.Drawing.Size(199, 21);
             this.comboBox_users.TabIndex = 0;
             this.comboBox_users.SelectedIndexChanged += new System.EventHandler(this.comboBox_users_SelectedIndexChanged);
             // 
@@ -645,7 +645,7 @@
             // 
             this.button_hidden.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button_hidden.BackgroundImage")));
             this.button_hidden.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button_hidden.Location = new System.Drawing.Point(3, 575);
+            this.button_hidden.Location = new System.Drawing.Point(3, 596);
             this.button_hidden.Name = "button_hidden";
             this.button_hidden.Size = new System.Drawing.Size(75, 23);
             this.button_hidden.TabIndex = 2;
@@ -658,7 +658,7 @@
             this.tabPage_add_contrib.Location = new System.Drawing.Point(4, 22);
             this.tabPage_add_contrib.Name = "tabPage_add_contrib";
             this.tabPage_add_contrib.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_add_contrib.Size = new System.Drawing.Size(543, 618);
+            this.tabPage_add_contrib.Size = new System.Drawing.Size(583, 639);
             this.tabPage_add_contrib.TabIndex = 3;
             this.tabPage_add_contrib.Text = "Add Contribution";
             this.tabPage_add_contrib.UseVisualStyleBackColor = true;
@@ -696,8 +696,19 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(537, 612);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(577, 633);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // button_add_contrib
+            // 
+            this.button_add_contrib.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_add_contrib.Location = new System.Drawing.Point(495, 363);
+            this.button_add_contrib.Name = "button_add_contrib";
+            this.button_add_contrib.Size = new System.Drawing.Size(79, 32);
+            this.button_add_contrib.TabIndex = 8;
+            this.button_add_contrib.Text = "Add";
+            this.button_add_contrib.UseVisualStyleBackColor = true;
+            this.button_add_contrib.Click += new System.EventHandler(this.button_add_contrib_Click);
             // 
             // panel14
             // 
@@ -706,7 +717,7 @@
             this.panel14.Location = new System.Drawing.Point(86, 200);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(451, 40);
+            this.panel14.Size = new System.Drawing.Size(491, 40);
             this.panel14.TabIndex = 13;
             // 
             // textBox_tags_addcontrib
@@ -715,7 +726,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_tags_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.textBox_tags_addcontrib.Name = "textBox_tags_addcontrib";
-            this.textBox_tags_addcontrib.Size = new System.Drawing.Size(443, 20);
+            this.textBox_tags_addcontrib.Size = new System.Drawing.Size(483, 20);
             this.textBox_tags_addcontrib.TabIndex = 0;
             // 
             // label13
@@ -735,7 +746,7 @@
             this.panel13.Location = new System.Drawing.Point(86, 160);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(451, 40);
+            this.panel13.Size = new System.Drawing.Size(491, 40);
             this.panel13.TabIndex = 11;
             // 
             // textBox_mediaurl_addcontrib
@@ -744,7 +755,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_mediaurl_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.textBox_mediaurl_addcontrib.Name = "textBox_mediaurl_addcontrib";
-            this.textBox_mediaurl_addcontrib.Size = new System.Drawing.Size(443, 20);
+            this.textBox_mediaurl_addcontrib.Size = new System.Drawing.Size(483, 20);
             this.textBox_mediaurl_addcontrib.TabIndex = 0;
             // 
             // panel8
@@ -754,19 +765,8 @@
             this.panel8.Location = new System.Drawing.Point(86, 240);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(451, 120);
+            this.panel8.Size = new System.Drawing.Size(491, 120);
             this.panel8.TabIndex = 9;
-            // 
-            // button_add_contrib
-            // 
-            this.button_add_contrib.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_add_contrib.Location = new System.Drawing.Point(455, 363);
-            this.button_add_contrib.Name = "button_add_contrib";
-            this.button_add_contrib.Size = new System.Drawing.Size(79, 32);
-            this.button_add_contrib.TabIndex = 8;
-            this.button_add_contrib.Text = "Add";
-            this.button_add_contrib.UseVisualStyleBackColor = true;
-            this.button_add_contrib.Click += new System.EventHandler(this.button_add_contrib_Click);
             // 
             // textBox_desc_addcontrib
             // 
@@ -776,7 +776,7 @@
             this.textBox_desc_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.textBox_desc_addcontrib.Multiline = true;
             this.textBox_desc_addcontrib.Name = "textBox_desc_addcontrib";
-            this.textBox_desc_addcontrib.Size = new System.Drawing.Size(443, 107);
+            this.textBox_desc_addcontrib.Size = new System.Drawing.Size(483, 107);
             this.textBox_desc_addcontrib.TabIndex = 0;
             // 
             // label12
@@ -796,7 +796,7 @@
             this.panel9.Location = new System.Drawing.Point(86, 120);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(451, 40);
+            this.panel9.Size = new System.Drawing.Size(491, 40);
             this.panel9.TabIndex = 6;
             // 
             // comboBox_locations_addcontrib
@@ -806,7 +806,7 @@
             this.comboBox_locations_addcontrib.FormattingEnabled = true;
             this.comboBox_locations_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.comboBox_locations_addcontrib.Name = "comboBox_locations_addcontrib";
-            this.comboBox_locations_addcontrib.Size = new System.Drawing.Size(443, 21);
+            this.comboBox_locations_addcontrib.Size = new System.Drawing.Size(483, 21);
             this.comboBox_locations_addcontrib.TabIndex = 3;
             // 
             // panel10
@@ -816,7 +816,7 @@
             this.panel10.Location = new System.Drawing.Point(86, 80);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(451, 40);
+            this.panel10.Size = new System.Drawing.Size(491, 40);
             this.panel10.TabIndex = 5;
             // 
             // comboBox_activities_addcontrib
@@ -827,7 +827,7 @@
             this.comboBox_activities_addcontrib.FormattingEnabled = true;
             this.comboBox_activities_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.comboBox_activities_addcontrib.Name = "comboBox_activities_addcontrib";
-            this.comboBox_activities_addcontrib.Size = new System.Drawing.Size(443, 21);
+            this.comboBox_activities_addcontrib.Size = new System.Drawing.Size(483, 21);
             this.comboBox_activities_addcontrib.TabIndex = 2;
             // 
             // panel11
@@ -838,14 +838,14 @@
             this.panel11.Location = new System.Drawing.Point(86, 40);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(451, 40);
+            this.panel11.Size = new System.Drawing.Size(491, 40);
             this.panel11.TabIndex = 4;
             // 
             // checkBox_new_collection
             // 
             this.checkBox_new_collection.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.checkBox_new_collection.AutoSize = true;
-            this.checkBox_new_collection.Location = new System.Drawing.Point(349, 13);
+            this.checkBox_new_collection.Location = new System.Drawing.Point(389, 13);
             this.checkBox_new_collection.Name = "checkBox_new_collection";
             this.checkBox_new_collection.Size = new System.Drawing.Size(97, 17);
             this.checkBox_new_collection.TabIndex = 2;
@@ -860,7 +860,7 @@
             this.comboBox_collections_addcontrib.FormattingEnabled = true;
             this.comboBox_collections_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.comboBox_collections_addcontrib.Name = "comboBox_collections_addcontrib";
-            this.comboBox_collections_addcontrib.Size = new System.Drawing.Size(340, 21);
+            this.comboBox_collections_addcontrib.Size = new System.Drawing.Size(380, 21);
             this.comboBox_collections_addcontrib.TabIndex = 1;
             this.comboBox_collections_addcontrib.SelectedIndexChanged += new System.EventHandler(this.comboBox_collections_addcontrib_SelectedIndexChanged);
             // 
@@ -902,13 +902,13 @@
             this.panel12.Location = new System.Drawing.Point(86, 0);
             this.panel12.Margin = new System.Windows.Forms.Padding(0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(451, 40);
+            this.panel12.Size = new System.Drawing.Size(491, 40);
             this.panel12.TabIndex = 3;
             // 
             // button_refresh_users_addcontrib
             // 
             this.button_refresh_users_addcontrib.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_refresh_users_addcontrib.Location = new System.Drawing.Point(349, 9);
+            this.button_refresh_users_addcontrib.Location = new System.Drawing.Point(389, 9);
             this.button_refresh_users_addcontrib.Name = "button_refresh_users_addcontrib";
             this.button_refresh_users_addcontrib.Size = new System.Drawing.Size(97, 23);
             this.button_refresh_users_addcontrib.TabIndex = 2;
@@ -923,7 +923,7 @@
             this.comboBox_users_addcontrib.FormattingEnabled = true;
             this.comboBox_users_addcontrib.Location = new System.Drawing.Point(3, 10);
             this.comboBox_users_addcontrib.Name = "comboBox_users_addcontrib";
-            this.comboBox_users_addcontrib.Size = new System.Drawing.Size(340, 21);
+            this.comboBox_users_addcontrib.Size = new System.Drawing.Size(380, 21);
             this.comboBox_users_addcontrib.TabIndex = 0;
             this.comboBox_users_addcontrib.SelectedIndexChanged += new System.EventHandler(this.comboBox_users_addcontrib_SelectedIndexChanged);
             // 
@@ -985,6 +985,57 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(577, 633);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button_refresh_activities);
+            this.panel5.Controls.Add(this.comboBox_activities);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(90, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(487, 40);
+            this.panel5.TabIndex = 15;
+            // 
+            // button_refresh_activities
+            // 
+            this.button_refresh_activities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_refresh_activities.Location = new System.Drawing.Point(387, 9);
+            this.button_refresh_activities.Name = "button_refresh_activities";
+            this.button_refresh_activities.Size = new System.Drawing.Size(97, 23);
+            this.button_refresh_activities.TabIndex = 4;
+            this.button_refresh_activities.Text = "Refresh";
+            this.button_refresh_activities.UseVisualStyleBackColor = true;
+            this.button_refresh_activities.Click += new System.EventHandler(this.button_refresh_activities_Click);
+            // 
+            // comboBox_activities
+            // 
+            this.comboBox_activities.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_activities.FormattingEnabled = true;
+            this.comboBox_activities.Location = new System.Drawing.Point(3, 10);
+            this.comboBox_activities.Name = "comboBox_activities";
+            this.comboBox_activities.Size = new System.Drawing.Size(378, 21);
+            this.comboBox_activities.TabIndex = 2;
+            this.comboBox_activities.SelectedIndexChanged += new System.EventHandler(this.comboBox_activities_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Activities:";
+            // 
+            // textBox_activity_icon_url
+            // 
+            this.textBox_activity_icon_url.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_activity_icon_url.Location = new System.Drawing.Point(93, 90);
+            this.textBox_activity_icon_url.Name = "textBox_activity_icon_url";
+            this.textBox_activity_icon_url.Size = new System.Drawing.Size(481, 20);
+            this.textBox_activity_icon_url.TabIndex = 12;
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.textBox_activity_description);
@@ -994,6 +1045,17 @@
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(487, 120);
             this.panel15.TabIndex = 9;
+            // 
+            // textBox_activity_description
+            // 
+            this.textBox_activity_description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_activity_description.Location = new System.Drawing.Point(3, 7);
+            this.textBox_activity_description.Multiline = true;
+            this.textBox_activity_description.Name = "textBox_activity_description";
+            this.textBox_activity_description.Size = new System.Drawing.Size(481, 110);
+            this.textBox_activity_description.TabIndex = 1;
             // 
             // label20
             // 
@@ -1015,6 +1077,15 @@
             this.panel16.Size = new System.Drawing.Size(487, 40);
             this.panel16.TabIndex = 6;
             // 
+            // textBox_activity_name
+            // 
+            this.textBox_activity_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox_activity_name.Location = new System.Drawing.Point(3, 10);
+            this.textBox_activity_name.Name = "textBox_activity_name";
+            this.textBox_activity_name.Size = new System.Drawing.Size(481, 20);
+            this.textBox_activity_name.TabIndex = 1;
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -1035,105 +1106,6 @@
             this.label27.TabIndex = 10;
             this.label27.Text = "Activity Icon Url:";
             // 
-            // textBox_activity_name
-            // 
-            this.textBox_activity_name.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_activity_name.Location = new System.Drawing.Point(3, 10);
-            this.textBox_activity_name.Name = "textBox_activity_name";
-            this.textBox_activity_name.Size = new System.Drawing.Size(481, 20);
-            this.textBox_activity_name.TabIndex = 1;
-            // 
-            // textBox_activity_icon_url
-            // 
-            this.textBox_activity_icon_url.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_activity_icon_url.Location = new System.Drawing.Point(93, 90);
-            this.textBox_activity_icon_url.Name = "textBox_activity_icon_url";
-            this.textBox_activity_icon_url.Size = new System.Drawing.Size(481, 20);
-            this.textBox_activity_icon_url.TabIndex = 12;
-            // 
-            // textBox_activity_description
-            // 
-            this.textBox_activity_description.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox_activity_description.Location = new System.Drawing.Point(3, 7);
-            this.textBox_activity_description.Multiline = true;
-            this.textBox_activity_description.Name = "textBox_activity_description";
-            this.textBox_activity_description.Size = new System.Drawing.Size(481, 110);
-            this.textBox_activity_description.TabIndex = 1;
-            // 
-            // button_add_activity
-            // 
-            this.button_add_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_add_activity.Location = new System.Drawing.Point(405, 3);
-            this.button_add_activity.Name = "button_add_activity";
-            this.button_add_activity.Size = new System.Drawing.Size(79, 32);
-            this.button_add_activity.TabIndex = 13;
-            this.button_add_activity.Text = "Add";
-            this.button_add_activity.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Activities:";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button_refresh_activities);
-            this.panel5.Controls.Add(this.comboBox_activities);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(90, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(487, 40);
-            this.panel5.TabIndex = 15;
-            // 
-            // button_remove_activity
-            // 
-            this.button_remove_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_remove_activity.Location = new System.Drawing.Point(235, 3);
-            this.button_remove_activity.Name = "button_remove_activity";
-            this.button_remove_activity.Size = new System.Drawing.Size(79, 32);
-            this.button_remove_activity.TabIndex = 8;
-            this.button_remove_activity.Text = "Remove";
-            this.button_remove_activity.UseVisualStyleBackColor = true;
-            // 
-            // button_update_activity
-            // 
-            this.button_update_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_update_activity.Location = new System.Drawing.Point(320, 3);
-            this.button_update_activity.Name = "button_update_activity";
-            this.button_update_activity.Size = new System.Drawing.Size(79, 32);
-            this.button_update_activity.TabIndex = 7;
-            this.button_update_activity.Text = "Update";
-            this.button_update_activity.UseVisualStyleBackColor = true;
-            // 
-            // button_refresh_activities
-            // 
-            this.button_refresh_activities.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_refresh_activities.Location = new System.Drawing.Point(387, 9);
-            this.button_refresh_activities.Name = "button_refresh_activities";
-            this.button_refresh_activities.Size = new System.Drawing.Size(97, 23);
-            this.button_refresh_activities.TabIndex = 4;
-            this.button_refresh_activities.Text = "Refresh";
-            this.button_refresh_activities.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_activities
-            // 
-            this.comboBox_activities.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_activities.FormattingEnabled = true;
-            this.comboBox_activities.Location = new System.Drawing.Point(3, 10);
-            this.comboBox_activities.Name = "comboBox_activities";
-            this.comboBox_activities.Size = new System.Drawing.Size(378, 21);
-            this.comboBox_activities.TabIndex = 2;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button_update_activity);
@@ -1145,6 +1117,39 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(487, 353);
             this.panel6.TabIndex = 16;
+            // 
+            // button_update_activity
+            // 
+            this.button_update_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_update_activity.Location = new System.Drawing.Point(320, 3);
+            this.button_update_activity.Name = "button_update_activity";
+            this.button_update_activity.Size = new System.Drawing.Size(79, 32);
+            this.button_update_activity.TabIndex = 7;
+            this.button_update_activity.Text = "Update";
+            this.button_update_activity.UseVisualStyleBackColor = true;
+            this.button_update_activity.Click += new System.EventHandler(this.button_update_activity_Click);
+            // 
+            // button_remove_activity
+            // 
+            this.button_remove_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_remove_activity.Location = new System.Drawing.Point(235, 3);
+            this.button_remove_activity.Name = "button_remove_activity";
+            this.button_remove_activity.Size = new System.Drawing.Size(79, 32);
+            this.button_remove_activity.TabIndex = 8;
+            this.button_remove_activity.Text = "Remove";
+            this.button_remove_activity.UseVisualStyleBackColor = true;
+            this.button_remove_activity.Click += new System.EventHandler(this.button_remove_activity_Click);
+            // 
+            // button_add_activity
+            // 
+            this.button_add_activity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_add_activity.Location = new System.Drawing.Point(405, 3);
+            this.button_add_activity.Name = "button_add_activity";
+            this.button_add_activity.Size = new System.Drawing.Size(79, 32);
+            this.button_add_activity.TabIndex = 13;
+            this.button_add_activity.Text = "Add";
+            this.button_add_activity.UseVisualStyleBackColor = true;
+            this.button_add_activity.Click += new System.EventHandler(this.button_add_activity_Click);
             // 
             // MainForm
             // 
@@ -1189,11 +1194,11 @@
             this.tabPage_add_activity.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel5.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
-            this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -203,24 +203,26 @@ namespace sync.classes
                     return response.data;
             return null;
         }
-        public SContext AddContext(string title, string description)
+        public SContext AddContext(string title, string description, string icon)
         {
             Dictionary<string, string> get_params = new Dictionary<string, string>();
             Dictionary<string, object> post_params = new Dictionary<string, object>();
             get_params.Add("site", Configurations.GetSiteNameForServer());
             post_params.Add("title", title); post_params.Add("description", description);
+            post_params.Add("icon", icon);
             SBasic<SContext> response = RESTService.MakeAndExecutePostRequest<SContext>("/api/context/new/activity/at/{site}", get_params, post_params);
             if (response != null)
                 if (response.data != null)
                     return response.data;
             return null;
         }
-        public SContext UpdateContext(string context_id, string title, string description)
+        public SContext UpdateContext(string context_id, string title, string description, string icon)
         {
             Dictionary<string, string> get_params = new Dictionary<string, string>();
             Dictionary<string, object> post_params = new Dictionary<string, object>();
             get_params.Add("id", context_id);
             post_params.Add("title", title); post_params.Add("description", description);
+            post_params.Add("icon", icon);
             SBasic<SContext> response = RESTService.MakeAndExecutePostRequest<SContext>("/api/context/{id}/update", get_params, post_params);
             if (response != null)
                 if (response.data != null)

@@ -154,7 +154,7 @@ namespace sync
             if (activities.Count() == 1)
             {
                 Activity di = activities.Single<Activity>();
-                SContext context = server_api.AddContext(di.name, di.description);
+                SContext context = server_api.AddContext(di.name, di.description, di.avatar);
                 if (RESTService.Last_Exception != null)
                     this.errors.Add(RESTService.Last_Exception);
             }
@@ -169,7 +169,7 @@ namespace sync
             if (activities.Count() == 1)
             {
                 Activity di = activities.Single<Activity>();
-                SContext context = server_api.UpdateContext(di.technical_info, di.name, di.description);
+                SContext context = server_api.UpdateContext(di.technical_info, di.name, di.description, di.avatar);
                 if (RESTService.Last_Exception != null)
                     this.errors.Add(RESTService.Last_Exception);
             }

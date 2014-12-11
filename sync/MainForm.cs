@@ -44,7 +44,8 @@ namespace sync
         {
             Configurations.LoadSettings();
             InitializeComponent();
-            
+            this.Text = "Sync - " + Configurations.site_name;
+
             progressBar_ls.Style = ProgressBarStyle.Continuous;
             progressBar_ls.MarqueeAnimationSpeed = 0; progressBar_ls.Value = 0;
 
@@ -759,6 +760,7 @@ namespace sync
         {
             if (comboBox_activities.SelectedIndex < 0) return;
             this.textBox_activity_name.Text = cached_activities[comboBox_activities.SelectedIndex].name;
+            this.textBox_activity_icon_url.Text = cached_activities[comboBox_activities.SelectedIndex].avatar;
             this.textBox_activity_description.Text = cached_activities[comboBox_activities.SelectedIndex].description;
         }
 
@@ -792,6 +794,7 @@ namespace sync
             Activity the_activity = activities.Single<Activity>();
             the_activity.name = textBox_activity_name.Text;
             the_activity.description = textBox_activity_description.Text;
+            the_activity.avatar = textBox_activity_icon_url.Text;
             sync.classes.Action action = new classes.Action();
             action.type_id = 2; action.user_id = 0; action.date = DateTime.UtcNow; action.object_id = the_activity.id;
             action.object_type = "nature_net.Activity"; action.technical_info = "Updating name/desc.";
@@ -802,6 +805,7 @@ namespace sync
                 MessageBox.Show("Error (" + ex.Message + "):\r\n" + ex.StackTrace);
                 return;
             }
+            MessageBox.Show("Updated in the local database. It will be synced once (Local -> Server) is enabled.");
         }
 
         private void button_add_activity_Click(object sender, EventArgs e)
@@ -814,6 +818,7 @@ namespace sync
             Activity a = new Activity();
             a.name = textBox_activity_name.Text;
             a.description = textBox_activity_description.Text;
+            a.avatar = textBox_activity_icon_url.Text;
             a.avatar = ""; a.creation_date = DateTime.UtcNow; a.location_id = 0;
             TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
             db.Activities.InsertOnSubmit(a);
@@ -829,6 +834,13 @@ namespace sync
             action.object_id = a.id;
             db.Actions.InsertOnSubmit(action);
             db.SubmitChanges();
+            try { db.SubmitChanges(); }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error (" + ex.Message + "):\r\n" + ex.StackTrace);
+                return;
+            }
+            MessageBox.Show("Added to the local database. It will be synced once (Local -> Server) is enabled.");
         }
 
         private void button_remove_activity_Click(object sender, EventArgs e)
@@ -873,6 +885,7 @@ namespace sync
                 MessageBox.Show("Error (" + ex.Message + "):\r\n" + ex.StackTrace);
                 return;
             }
+            MessageBox.Show("Removed from the local database. It will be synced once (Local -> Server) is enabled.");
         }
 
         private void button_refresh_users_addcontrib_Click(object sender, EventArgs e)
