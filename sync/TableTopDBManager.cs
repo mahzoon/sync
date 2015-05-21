@@ -6,6 +6,7 @@ using sync.classes;
 using System.Data.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 
 namespace sync
 {
@@ -105,18 +106,21 @@ namespace sync
 		private void ProcessInsertDesignIdea(int id)
 		{
 			TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
-            var designideas = from d in db.Design_Ideas
+            var designideas = from d in db.Contributions
                           where d.id == id
                           select d;
             if (designideas.Count() == 1)
 			{
-                Design_Idea di = designideas.Single<Design_Idea>();
-                SNote note = server_api.CreateNote(di.name, "DesignIdea", di.note, Configurations.GetSiteNameForServer() + "_design_idea", di.status.ToString());
-                var contrib = from c in db.Contributions
-                              where c.id == id
-                              select c;
-                Contribution c1 = contrib.First<Contribution>();
-                c1.technical_info = note.id.ToString();
+                Contribution di = designideas.Single<Contribution>();
+                User u = find_user_of_contribution(di);
+                Activity a = find_activity_of_contribution(di);
+                if (u == null || a == null) return;
+                string cid = a.technical_info.Split(new char[] { ';' })[0];
+                SContext c = server_api.GetContext(cid);
+                if (c == null) return;
+                SNote note = server_api.CreateNote(u.name, "DesignIdea", di.note, c.name, di.status.ToString());
+                if (note == null) return;
+                di.technical_info = note.id.ToString();
                 db.SubmitChanges();
 				if (RESTService.Last_Exception != null)
 					this.errors.Add(RESTService.Last_Exception);
@@ -155,6 +159,7 @@ namespace sync
             {
                 Activity di = activities.Single<Activity>();
                 SContext context = server_api.AddContext(di.name, di.description, di.avatar);
+                di.technical_info = context.id.ToString() + ";" + context.extras;
                 if (RESTService.Last_Exception != null)
                     this.errors.Add(RESTService.Last_Exception);
             }
@@ -169,14 +174,16 @@ namespace sync
             if (activities.Count() == 1)
             {
                 Activity di = activities.Single<Activity>();
-                SContext context = server_api.UpdateContext(di.technical_info, di.name, di.description, di.avatar);
+                string context_id = di.technical_info.Split(new char[] { ';' })[0];
+                SContext context = server_api.UpdateContext(context_id, di.name, di.description, di.avatar);
                 if (RESTService.Last_Exception != null)
                     this.errors.Add(RESTService.Last_Exception);
             }
         }
 
-        private void ProcessDeleteActivity(string context_id)
+        private void ProcessDeleteActivity(string info)
         {
+            string context_id = info.Split(new char[] { ';' })[0];
             SContext context = server_api.DeleteContext(context_id);
             if (RESTService.Last_Exception != null)
                 this.errors.Add(RESTService.Last_Exception);
@@ -474,5 +481,28 @@ namespace sync
                     return contexts[counter].id;
             return -1;
         }
+
+        private User find_user_of_contribution(Contribution c)
+        {
+            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+            var users = from mappings in db.Collection_Contribution_Mappings
+                        where mappings.contribution_id == c.id
+                        select mappings.Collection.User;
+            if (users == null) return null;
+            if (users.Count() == 0) return null;
+            return users.First<User>();
+        }
+
+        private Activity find_activity_of_contribution(Contribution c)
+        {
+            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+            var activities = from mappings in db.Collection_Contribution_Mappings
+                             where mappings.contribution_id == c.id
+                             select mappings.Collection.Activity;
+            if (activities == null) return null;
+            if (activities.Count() == 0) return null;
+            return activities.First<Activity>();
+        }
+
     }
 }

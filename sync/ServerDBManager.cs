@@ -6,6 +6,7 @@ using sync.classes;
 using System.Data.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Newtonsoft.Json;
 
 namespace sync
 {
@@ -550,57 +551,86 @@ namespace sync
 
         public bool UpdateLocalActivitites()
         {
-            List<SContext> contexts = server_api.GetContextsForSite(Configurations.GetSiteNameForServer());
-            TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
-            if (contexts != null)
-                if (contexts.Count > 0)
-                    for (int counter = 0; counter < contexts.Count; counter++)
-                        if (contexts[counter].kind == "Activity")
-                        {
-                            var activities = from a in db.Activities
-                                             where a.name == contexts[counter].title
-                                             select a;
-                            if (activities.Count() == 0)
+            try
+            {
+                List<SContext> contexts = server_api.GetContextsForSite(Configurations.GetSiteNameForServer());
+                TableTopDataClassesDataContext db = Configurations.GetTableTopDB();
+                if (contexts != null)
+                    if (contexts.Count > 0)
+                    {
+                        var activities = from ac in db.Activities
+                                         select ac;
+                        for (int counter = 0; counter < contexts.Count; counter++)
+                            if (contexts[counter].kind != "Landmark" && contexts[counter].title != "Pilot")
                             {
-                                //create the activity
-                                Activity a = new Activity(); a.name = contexts[counter].title; a.location_id = 0;
-                                a.description = contexts[counter].description; a.creation_date = DateTime.UtcNow;
-                                a.technical_info = contexts[counter].id.ToString();
-                                a.avatar = contexts[counter].extras;
-                                db.Activities.InsertOnSubmit(a);
+                                Activity a = null;
+                                foreach (Activity activity in activities)
+                                    if (activity.technical_info.Split(new char[] { ';' })[0] == contexts[counter].id.ToString())
+                                    {
+                                        a = activity;
+                                        break;
+                                    }
+
+                                if (a == null)
+                                {
+                                    //create the activity
+                                    a = new Activity(); a.name = contexts[counter].title; a.location_id = 0;
+                                    a.description = contexts[counter].description; a.creation_date = DateTime.UtcNow;
+                                    Extras ex = JsonConvert.DeserializeObject<Extras>(contexts[counter].extras);
+                                    a.technical_info = contexts[counter].id.ToString() + ";" + contexts[counter].kind + ";" + contexts[counter].extras;
+                                    if (ex != null)
+                                    {
+                                        a.avatar = ex.icon;
+                                        if (!ex.active)
+                                            a.expire_date = DateTime.Now;
+                                    }
+                                    db.Activities.InsertOnSubmit(a);
+                                }
+                                else
+                                {
+                                    //modify it
+                                    a.name = contexts[counter].title;
+                                    a.description = contexts[counter].description;
+                                    Extras ex = JsonConvert.DeserializeObject<Extras>(contexts[counter].extras);
+                                    a.technical_info = contexts[counter].id.ToString() + ";" + contexts[counter].kind + ";" + contexts[counter].extras;
+                                    a.avatar = ex.icon;
+                                    if (!ex.active)
+                                        a.expire_date = DateTime.Now;
+                                    else
+                                        a.expire_date = null;
+                                }
+                                if (!SubmitChangesToLocalDB(db))
+                                    return false;
                             }
-                            else
-                            {
-                                //modify it
-                                Activity a = activities.First<Activity>();
-                                a.description = contexts[counter].description;
-                                a.technical_info = contexts[counter].id.ToString();
-                                a.avatar = contexts[counter].extras;
-                            }
-                            if (!SubmitChangesToLocalDB(db))
-                                return false;
-                        }
+                    }
+            }
+            catch (Exception ex) { System.Windows.Forms.MessageBox.Show(ex.Message + "\r\n" + ex.StackTrace); }
             return true;
         }
 
-        private bool create_contribution(SNote note, SMedia media, DateTime note_date, DateTime note_mod_date, string note_content, string note_id, bool is_design_idea, int collection_id, string status, TableTopDataClassesDataContext db)
+        private bool create_contribution(SNote note, SMedia media, DateTime note_date, DateTime note_mod_date, string content, string note_id, bool is_design_idea, int collection_id, string status, TableTopDataClassesDataContext db)
         {
             Contribution c = new Contribution();
             c.date = note_date;
             c.modified_date = note_mod_date;
             c.location_id = find_location_id(note);
+            string note_content = content;
             if (media != null)
                 c.media_url = media.link;
             else
                 c.media_url = "";
-
+            
             c.note = note_content;
             c.status = status;
             if (is_design_idea)
                 c.tags = "Design Idea";
             else
+            {
                 if (media != null)
                     c.tags = media.kind;
+                else
+                    c.tags = note.kind;
+            }
             c.technical_info = note_id;
             c.web_username = note.webusername;
             db.Contributions.InsertOnSubmit(c);

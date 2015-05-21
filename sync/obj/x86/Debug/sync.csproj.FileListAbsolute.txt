@@ -8,3 +8,5 @@ C:\Nature Net\sync\sync\bin\Debug\RestSharp.xml
 C:\Nature Net\sync\sync\obj\x86\Debug\sync.exe
 C:\Nature Net\sync\sync\obj\x86\Debug\sync.pdb
 C:\Nature Net\sync\sync\obj\x86\Debug\sync.MainForm.resources
+C:\Nature Net\sync\sync\bin\Debug\Newtonsoft.Json.pdb
+C:\Nature Net\sync\sync\bin\Debug\Newtonsoft.Json.xml

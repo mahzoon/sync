@@ -598,4 +598,27 @@ namespace sync.classes
         public int status_code { get; set; }
         public string status_txt { get; set; }
     }
+
+    class Extras
+    {
+        public string icon { get; set; }
+        public string type { get; set; }
+        public bool active { get; set; }
+        public List<BirdInfo> birds { get; set; }
+    }
+
+    class BirdInfo
+    {
+        public string name { get; set; }
+        public string image { get; set; }
+        public int count { get; set; }
+        public int seasonal_count { get; set; }
+    }
+
+    //class NoteContent
+    //{
+    //    public List<BirdInfo> birds { get; set; }
+    //    public string type { get; set; }
+    //    public string description { get; set; }
+    //}
 }

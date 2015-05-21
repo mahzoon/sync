@@ -19,17 +19,17 @@ namespace sync
         [STAThread]
         static void Main()
         {
-            try
-            {
+            //try
+            //{
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new MainForm());
-            }
-            catch (Exception ex)
-            {
-                Log.WriteErrorLog(ex);
-                MessageBox.Show("Sorry! The program needs to be restarted.");
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Log.WriteErrorLog(ex);
+            //    MessageBox.Show("Sorry! The program needs to be restarted.");
+            //}
         }
     }
 }
